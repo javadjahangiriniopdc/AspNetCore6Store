@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var CnnString = builder.Configuration.GetConnectionString("DefaultConection");
 builder.Services.AddDbContext<StoreDbContext>(options => options.UseSqlServer(CnnString));
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 

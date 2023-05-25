@@ -7,15 +7,17 @@ namespace AspNetCore6Store.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductRepository productRepository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IProductRepository productRepository)
         {
             _logger = logger;
+            this.productRepository = productRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(productRepository.GetAll());
         }
 
         public IActionResult Privacy()
