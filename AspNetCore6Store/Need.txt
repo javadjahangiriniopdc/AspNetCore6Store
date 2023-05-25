@@ -3,3 +3,5 @@ Microsoft.EntityFrameworkCore.Tools
 -----------------------------------------
 Add-Migration initialize
 Update-Database
+---------------------------------------
+https://localhost:7258/home/index/page1

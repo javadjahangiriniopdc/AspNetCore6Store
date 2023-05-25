@@ -8,6 +8,7 @@ namespace AspNetCore6Store.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository productRepository;
+        private int pageSize = 2;
 
         public HomeController(ILogger<HomeController> logger,IProductRepository productRepository)
         {
@@ -15,9 +16,9 @@ namespace AspNetCore6Store.Controllers
             this.productRepository = productRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int pageNumber=1)
         {
-            return View(productRepository.GetAll());
+            return View(productRepository.GetAll(pageNumber,pageSize));
         }
 
         public IActionResult Privacy()
