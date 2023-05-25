@@ -1,7 +1,12 @@
+using AspNetCore6Store.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var CnnString = builder.Configuration.GetConnectionString("DefaultConection");
+builder.Services.AddDbContext<StoreDbContext>(options => options.UseSqlServer(CnnString));
 
 var app = builder.Build();
 

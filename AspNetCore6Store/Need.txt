@@ -1,0 +1,5 @@
+﻿Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+-----------------------------------------
+Add-Migration initialize
+Update-Database
