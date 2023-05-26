@@ -34,7 +34,9 @@ app.UseAuthorization();
 app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapControllerRoute("pagination", "{controller=Home}/{action=Index}/{category}/Page{PageNumber}");
     endpoints.MapControllerRoute("pagination", "{controller=Home}/{action=Index}/Page{PageNumber}");
+    endpoints.MapControllerRoute("pagination", "{controller=Home}/{action=Index}/{category}");
 
     endpoints.MapDefaultControllerRoute();
 }
