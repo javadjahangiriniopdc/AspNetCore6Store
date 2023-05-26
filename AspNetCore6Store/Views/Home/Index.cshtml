@@ -2,14 +2,14 @@
     ViewData["Title"] = "Home Page";
 
 }
-@model PagedData<Product>
+@model ProductListViewModel
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-@foreach (var item in Model.Data)
+@foreach (var item in Model.Data.Data)
 {
     @Html.Partial("ProductSummary",item)
 }
-    <div class="btn-group m-1" page-model="Model.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-success"></div>
+    <div class="btn-group m-1" page-model="Model.Data.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-success"></div>
 </div>

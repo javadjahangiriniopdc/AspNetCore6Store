@@ -16,9 +16,14 @@ namespace AspNetCore6Store.Controllers
             this.productRepository = productRepository;
         }
 
-        public IActionResult Index(int pageNumber=1)
+        public IActionResult Index(string category = "",int pageNumber=1)
         {
-            return View(productRepository.GetAll(pageNumber,pageSize));
+            var viewModel = new ProductListViewModel
+            {
+                CurrentCategory = category,
+                Data = productRepository.GetAll(pageNumber, pageSize, category)
+            };
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
