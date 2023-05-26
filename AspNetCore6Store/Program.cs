@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 var CnnString = builder.Configuration.GetConnectionString("DefaultConection");
 builder.Services.AddDbContext<StoreDbContext>(options => options.UseSqlServer(CnnString));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -24,6 +26,8 @@ app.UseHttpsRedirection();
 app.UseStatusCodePages();
 
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.UseRouting();
 
