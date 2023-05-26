@@ -11,6 +11,10 @@ namespace AspNetCore6Store.Components
         {
             this.productRepository = productRepository;
         }
-        public IViewComponentResult Invoke() { return View(productRepository.GetAllCategories()); }
+        public IViewComponentResult Invoke() {
+            var currentCategory = RouteData?.Values["category"];
+            ViewBag.Category = currentCategory;
+            return View(productRepository.GetAllCategories()); 
+        }
     }
 }
