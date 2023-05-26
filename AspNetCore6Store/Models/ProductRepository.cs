@@ -23,5 +23,10 @@
             result.PageInfo.TotalCount = storeDbContext.products.Count();
             return result;
         }
+
+        public List<string> GetAllCategories()
+        {
+            return storeDbContext.products.Select(c => c.Category).Distinct().ToList();
+        }
     }
 }
