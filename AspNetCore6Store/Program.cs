@@ -31,10 +31,15 @@ app.UseAuthorization();
 
 
 
-app.MapControllerRoute(
-    name: "newroute",
-    pattern: "{controller=Home}/{action=Index}/Page{PageNumber}");
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute("pagination", "{controller=Home}/{action=Index}/Page{PageNumber}");
 
-app.MapDefaultControllerRoute();
+    endpoints.MapDefaultControllerRoute();
+}
+
+
+);
 
 app.Run();
